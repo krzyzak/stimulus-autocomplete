@@ -195,7 +195,7 @@ export default class Autocomplete extends Controller {
   fetchResults = async (query) => {
     try {
       this.element.dispatchEvent(new CustomEvent("loadstart"))
-      const html = await this.hasOptionsValue ? this.fetchLocalOptions(query) : this.fetchRemoteResults(query)
+      const html = await (this.hasOptionsValue ? this.fetchLocalOptions(query) : this.fetchRemoteResults(query))
 
       this.replaceResults(html)
       this.element.dispatchEvent(new CustomEvent("load"))
